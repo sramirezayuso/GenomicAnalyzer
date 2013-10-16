@@ -22,6 +22,8 @@ ASPR GAT|GAC
 LYST AAA|AAG
 ARGI CGT|CGC|CGA|CGG|AGA|AGG
 STOP TAA|TAG|TGA
+ANY  [ATCG]
+SELE \{.*\}
 
 %%
 <INITIAL>AUG	printf("Start");
@@ -46,11 +48,14 @@ STOP TAA|TAG|TGA
 <INITIAL>{LYST}	printf("K");
 <INITIAL>{ARGI}	printf("R");
 <INITIAL>STOP 	return 0;
-<INITIAL>\{.*\}\{.*\}\{.*\} ;
-<INITIAL>[ATCG]\{.*\}\{.*\}|\{.*\}[ATCG]\{.*\}|\{.*\}\{.*\}[ATCG] ;
-<INITIAL>\{.*\}[ATCG][ATCG]	{singleSelector(0, yyleng, yytext);};
-<INITIAL>[ATCG]\{.*\}[ATCG]	{singleSelector(1, yyleng, yytext);};
-<INITIAL>[ATCG][ATCG]\{.*\} {singleSelector(2, yyleng, yytext);};
+<INITIAL>{SELE}{SELE}{SELE} {tripleSelector(yyleng, yytext);};
+<INITIAL>{ANY}{SELE}{SELE}	{doubleSelector(0, yyleng, yytext);};
+<INITIAL>{SELE}{ANY}{SELE}	{doubleSelector(1, yyleng, yytext);};
+<INITIAL>{SELE}{SELE}{ANY}	{doubleSelector(2, yyleng, yytext);};
+<INITIAL>{SELE}{ANY}{ANY}	{singleSelector(0, yyleng, yytext);};
+<INITIAL>{ANY}{SELE}{ANY}	{singleSelector(1, yyleng, yytext);};
+<INITIAL>{ANY}{ANY}{SELE}	{singleSelector(2, yyleng, yytext);};
+
 <INSIDE>AUG		{printf("Start");
 				return 0;};
 <INSIDE>ISOL	{printf("I");
@@ -95,16 +100,35 @@ STOP TAA|TAG|TGA
 				return 0;};
 %%
 
-int main(void){
-	yyscan_t originalScanner;
+int
+main(void){
 
+	if(checkStart)
+		return -1;
+	else
+		return start();
+
+}
+
+int
+checkStart(void) {
+	char buff[3];
+	fread(buff, sizeof(char), 3, yyin);
+	return strcmp(buff, "AUG");
+}
+
+int
+start(void) {
+
+	yyscan_t originalScanner;
 	yylex_init ( &originalScanner );
 	yylex ( originalScanner );
 	yylex_destroy ( originalScanner );
 	return 0;
 }
 
-int singleSelector (int pos, int len, char* text) {
+int
+singleSelector (int pos, int len, char* text) {
 
 	char* c;
 	char* d;
@@ -138,7 +162,7 @@ int singleSelector (int pos, int len, char* text) {
 	count++;
 	c++;
 
-	for(; count < len; count++){
+	for( ; count < len; count++){
 		c++;
 		triplet[idy++] = *c;
 		printf("%c\n", triplet[idy]);
