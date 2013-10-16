@@ -1,12 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-#define TRUE 1
-#define FALSE !TRUE
-#define VALID_CHAR(c) ((c)=='A' || (c)=='T' || (c)=='C' || (c)=='G')?(TRUE):(FALSE)
-
-typedef enum{PRE, FIRST_IN, OTHERS_IN, POST} state;
-
 %option reentrant
 %s INSIDE
 
@@ -35,26 +26,27 @@ ANY  [ATCG]
 SELE \{.*\}
 
 %%
-<INITIAL>{ISOL}	I;
-<INITIAL>{LEUC}	L;
-<INITIAL>{VALI}	V;
-<INITIAL>{PHEN}	F;
-<INITIAL>{METH}	M;
-<INITIAL>{CYST}	C;
-<INITIAL>{ALAN}	A;
-<INITIAL>{GLYC}	G;
-<INITIAL>{PROL}	P;
-<INITIAL>{THRE}	T;
-<INITIAL>{SERI}	S;
-<INITIAL>{TYRO}	Y;
-<INITIAL>{TRYP}	W;
-<INITIAL>{GLUT}	Q;
-<INITIAL>{ASPA}	N;
-<INITIAL>{HIST}	H;
-<INITIAL>{GLUA}	E;
-<INITIAL>{ASPR}	D;
-<INITIAL>{LYST}	K;
-<INITIAL>{ARGI}	R;
+<INITIAL>{ANY} printf("JUNK");
+<INITIAL>{ISOL}	printf("I");
+<INITIAL>{LEUC}	printf("L");
+<INITIAL>{VALI}	printf("V");
+<INITIAL>{PHEN}	printf("F");
+<INITIAL>{METH}	printf("M");
+<INITIAL>{CYST}	printf("C");
+<INITIAL>{ALAN}	printf("A");
+<INITIAL>{GLYC}	printf("G");
+<INITIAL>{PROL}	printf("P");
+<INITIAL>{THRE}	printf("T");
+<INITIAL>{SERI}	printf("S");
+<INITIAL>{TYRO}	printf("Y");
+<INITIAL>{TRYP}	printf("W");
+<INITIAL>{GLUT}	printf("Q");
+<INITIAL>{ASPA}	printf("N");
+<INITIAL>{HIST}	printf("H");
+<INITIAL>{GLUA}	printf("E");
+<INITIAL>{ASPR}	printf("D");
+<INITIAL>{LYST}	printf("K");
+<INITIAL>{ARGI}	printf("R");
 <INITIAL>STOP 	return 0;
 <INITIAL>{SELE}{SELE}{SELE} {tripleSelector(&yyleng, yytext); yyless(0);};
 <INITIAL>{ANY}{SELE}{SELE}	{doubleSelector(&yyleng, yytext); yyless(0);};
@@ -65,22 +57,72 @@ SELE \{.*\}
 <INITIAL>{ANY}{ANY}{SELE}	{singleSelector(&yyleng, yytext); yyless(0);};
 
 %%
+#include <stdio.h>
+#include <stdlib.h>
 
-int
-main (void) {
+#define TRUE 1
+#define FALSE !TRUE
+#define VALID_CHAR(c) ((c)=='A' || (c)=='T' || (c)=='C' || (c)=='G')?(TRUE):(FALSE)
 
-	if (checkStart)
-		return -1;
-	else
-		return start();
+typedef enum{PRE, FIRST_IN, OTHERS_IN, POST} state;
 
+void
+trim (char* text, int *len) {
+	int i, j, state;
+
+	for (j=i=0, state=PRE; j<*len ;j++) {
+
+		switch (state) {
+			case PRE:
+				if(text[j]=='{')
+					state=FIRST_IN;
+				else if(VALID_CHAR(text[j])){
+					text[i]=text[j];
+					i++;
+				}
+				break;
+			case FIRST_IN:
+				if(text[j]==',')
+					state=OTHERS_IN;
+				else if(VALID_CHAR(text[j])){
+					text[i]=text[j];
+					i++;
+				}
+				break;
+			case OTHERS_IN:
+				if(text[j]=='}')
+					state=POST;
+				break;
+			case POST:
+				if(VALID_CHAR(text[j])){
+					text[i]=text[j];
+					i++;
+				} else if(text[j]=='{')
+					state=FIRST_IN;
+				break;
+		}
+	}
+	memset(text+i, '\0', (*len)-i);
+	*len=i;
+	return ;
 }
 
 int
-checkStart (void) {
-	char buff[3];
-	fread(buff, sizeof(char), 3, yyin);
-	return strcmp(buff, "AUG");
+singleSelector (int *len, char* text) {
+	trim(text, len);
+	return 1;
+}
+
+int
+doubleSelector (int *len, char* text) {
+	trim(text, len);
+	return 1;
+}
+
+int
+tripleSelector (int *len, char* text) {
+	trim(text, len);
+	return 1;
 }
 
 int
@@ -93,64 +135,22 @@ start (void) {
 	return 0;
 }
 
-void
-singleSelector (int *len, char* text) {
-	trim(text, len);
-	return ;
+int
+checkStart (void) {
+	char buff[3];
+	fread(buff, sizeof(char), 3, stdin);
+	return strcmp(buff, "AUG");
 }
 
-void
-doubleSelector (int *len, char* text) {
-	trim(text, len);
-	return ;
+int
+main (void) {
+
+	if (checkStart())
+		return -1;
+	else
+		return start();
+
 }
-
-void
-tripleSelector (int *len, char* text) {
-	trim(text, len);
-	return ;
-}
-
-void
-trim (char* text, int *len) {
-	int i, j, state;
-
-	for (j=i=0, state=PRE; j<*len ;j++) {
-		switch (state) {
-			case PRE:
-				if(text[j]='{')
-					state=FIRST_IN;
-				else if(VALID_CHAR(text[j])){
-					text[i]=text[j];
-					i++;
-				}
-				break;
-			case FIRST_IN:
-				if(text[j]=',')
-					state=OTHERS_IN;
-				else if(VALID_CHAR(text[j])){
-					text[i]=text[j];
-					i++;
-				}
-				break;
-			case OTHERS_IN:
-				if(text[j]='}')
-					state=POST;
-				break;
-			case POST:
-				if(VALID_CHAR(text[j])){
-					text[i]=text[j];
-					i++;
-				} else if(text[j]='{')
-					state=FIRST_IN;
-				break;
-		}
-	}
-	*len=i;
-	return ;
-}
-
-
 
 
 /*
