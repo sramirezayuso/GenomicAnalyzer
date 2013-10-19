@@ -47,16 +47,16 @@ REPN {REPE}{POS}
 	int posCheckerChar (int pos, char c);
 	void writeBuffer (char* text, int len);
 	void writeBufferChar (char c);
-	void trim (char* text, int *len);
-	int singleSelector (int *len, char* text);
-	int doubleSelector (int *len, char* text);
-	int tripleSelector (int *len, char* text);
+	int trim (char* text, int len);
+	int singleSelector (int len, char* text);
+	int doubleSelector (int len, char* text);
+	int tripleSelector (int len, char* text);
 
 	t_wbuff wbuff;
 }
 
 %%
-.	 		writeBuffer("|JUNK|", 6);
+.	 		writeBufferChar(yytext[0]);
 {ISOL}		writeBufferChar('I');
 {LEUC}		writeBufferChar('L');
 {VALI}		writeBufferChar('V');
@@ -81,15 +81,25 @@ REPN {REPE}{POS}
 {POS}{SELE}			{;};
 {REPN}				{;};
 {STOP} 				{fwrite(wbuff.text, wbuff.curr%wbuff.size, 1, yyout); return 0;};
-{SELE}{SELE}{SELE}	{tripleSelector(&yyleng, yytext); yyless(0);};
-{ANY}{SELE}{SELE}	{doubleSelector(&yyleng, yytext); yyless(0);};
-{SELE}{ANY}{SELE}	{doubleSelector(&yyleng, yytext); yyless(0);};
-{SELE}{SELE}{ANY}	{doubleSelector(&yyleng, yytext); yyless(0);};
-{SELE}{ANY}{ANY}	{singleSelector(&yyleng, yytext); yyless(0);};
-{ANY}{SELE}{ANY}	{singleSelector(&yyleng, yytext); yyless(0);};
-{ANY}{ANY}{SELE}	{singleSelector(&yyleng, yytext); yyless(0);};
+{SELE}{SELE}{SELE}	{yyless(tripleSelector(yyleng, yytext));};
+{ANY}{SELE}{SELE}	{yyless(doubleSelector(yyleng, yytext));};
+{SELE}{ANY}{SELE}	{yyless(doubleSelector(yyleng, yytext));};
+{SELE}{SELE}{ANY}	{yyless(doubleSelector(yyleng, yytext));};
+{SELE}{ANY}{ANY}	{yyless(singleSelector(yyleng, yytext));};
+{ANY}{SELE}{ANY}	{yyless(singleSelector(yyleng, yytext));};
+{ANY}{ANY}{SELE}	{yyless(singleSelector(yyleng, yytext));};
 
-%%
+%% 
+
+void
+swapSides (char* text, int i, int j) {
+	for (i--, j--; i>=0 ;i--, j--)
+		text[j]= text[i];
+	printf("%11s\n", text);
+	return ;
+}
+
+
 
 int
 posCheckerChar (int pos, char c) {
@@ -117,11 +127,11 @@ writeBuffer (char* text, int len) {
 		writeBufferChar(text[i]);
 }
 
-void
-trim (char* text, int *len) {
+int
+trim (char* text, int len) {
 	int i, j, state;
 
-	for (j=i=0, state=PRE; j<*len ;j++) {
+	for (j=i=0, state=PRE; j<len ;j++) {
 
 		switch (state) {
 			case PRE:
@@ -153,26 +163,26 @@ trim (char* text, int *len) {
 				break;
 		}
 	}
-	*len=i;
-	return ;
+	printf("%d, %d\n", i, len);
+	swapSides(text, i, len);
+	return len-i;
 }
 
 int
-singleSelector (int *len, char* text) {
-	trim(text, len);
-	return 0;
+singleSelector (int len, char* text) {
+	int ret = trim(text, len);
+	printf("%s, %d\n", text, len);
+	return ret;
 }
 
 int
-doubleSelector (int *len, char* text) {
-	trim(text, len);
-	return 0;
+doubleSelector (int len, char* text) {
+	return trim(text, len); 
 }
 
 int
-tripleSelector (int *len, char* text) {
-	trim(text, len);
-	return 0;
+tripleSelector (int len, char* text) {
+	return trim(text, len);
 }
 
 int
