@@ -27,31 +27,31 @@ POS  \[{NUM}+\]
 REPN {REPE}{POS}
 
 %%
-.	 	write("JUNK", 4);
-{ISOL}	write('I');
-{LEUC}	write('L');
-{VALI}	write('V');
-{PHEN}	write('F');
-{METH}	write('M');
-{CYST}	write('C');
-{ALAN}	write('A');
-{GLYC}	write('G');
-{PROL}	write('P');
-{THRE}	write('T');
-{SERI}	write('S');
-{TYRO}	write('Y');
-{TRYP}	write('W');
-{GLUT}	write('Q');
-{ASPA}	write('N');
-{HIST}	write('H');
-{GLUA}	write('E');
-{ASPR}	write('D');
-{LYST}	write('K');
-{ARGI}	write('R');
-{POS}{ANY}			{if(!posChecker(yyleng, yytext)) return -1;}
-{POS}{SELE}			{}
-{REPN}				{}
-{STOP} 				{clear(); return 0;}
+.	 		write("|JUNK|", 6);
+{ISOL}		write('I');
+{LEUC}		write('L');
+{VALI}		write('V');
+{PHEN}		write('F');
+{METH}		write('M');
+{CYST}		write('C');
+{ALAN}		write('A');
+{GLYC}		write('G');
+{PROL}		write('P');
+{THRE}		write('T');
+{SERI}		write('S');
+{TYRO}		write('Y');
+{TRYP}		write('W');
+{GLUT}		write('Q');
+{ASPA}		write('N');
+{HIST}		write('H');
+{GLUA}		write('E');
+{ASPR}		write('D');
+{LYST}		write('K');
+{ARGI}		write('R');
+{POS}{ANY}			{if(!posChecker(yyleng, yytext)) return -1;};
+{POS}{SELE}			{;};
+{REPN}				{;};
+{STOP} 				{clear(); return 0;};
 {SELE}{SELE}{SELE}	{tripleSelector(&yyleng, yytext); yyless(0);};
 {ANY}{SELE}{SELE}	{doubleSelector(&yyleng, yytext); yyless(0);};
 {SELE}{ANY}{SELE}	{doubleSelector(&yyleng, yytext); yyless(0);};
