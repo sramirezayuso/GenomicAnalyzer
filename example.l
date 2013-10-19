@@ -21,30 +21,37 @@ ARGI CGT|CGC|CGA|CGG|AGA|AGG
 STOP TAA|TAG|TGA|STOP
 ANY  [ATCG]
 SELE \{.*\}
+REPE {SELE}\*
+NUM  [0-9]
+POS  \[{NUM}+\]
+REPN {REPE}{POS}
 
 %%
-.	 	printf("JUNK");
-{ISOL}	printf("I");
-{LEUC}	printf("L");
-{VALI}	printf("V");
-{PHEN}	printf("F");
-{METH}	printf("M");
-{CYST}	printf("C");
-{ALAN}	printf("A");
-{GLYC}	printf("G");
-{PROL}	printf("P");
-{THRE}	printf("T");
-{SERI}	printf("S");
-{TYRO}	printf("Y");
-{TRYP}	printf("W");
-{GLUT}	printf("Q");
-{ASPA}	printf("N");
-{HIST}	printf("H");
-{GLUA}	printf("E");
-{ASPR}	printf("D");
-{LYST}	printf("K");
-{ARGI}	printf("R");
-STOP 	return 0;
+.	 	write("JUNK", 4);
+{ISOL}	write('I');
+{LEUC}	write('L');
+{VALI}	write('V');
+{PHEN}	write('F');
+{METH}	write('M');
+{CYST}	write('C');
+{ALAN}	write('A');
+{GLYC}	write('G');
+{PROL}	write('P');
+{THRE}	write('T');
+{SERI}	write('S');
+{TYRO}	write('Y');
+{TRYP}	write('W');
+{GLUT}	write('Q');
+{ASPA}	write('N');
+{HIST}	write('H');
+{GLUA}	write('E');
+{ASPR}	write('D');
+{LYST}	write('K');
+{ARGI}	write('R');
+{POS}{ANY}			{if(!posChecker(yyleng, yytext)) return -1;}
+{POS}{SELE}			{}
+{REPN}				{}
+{STOP} 				{clear(); return 0;}
 {SELE}{SELE}{SELE}	{tripleSelector(&yyleng, yytext); yyless(0);};
 {ANY}{SELE}{SELE}	{doubleSelector(&yyleng, yytext); yyless(0);};
 {SELE}{ANY}{SELE}	{doubleSelector(&yyleng, yytext); yyless(0);};
@@ -59,9 +66,44 @@ STOP 	return 0;
 
 #define TRUE 1
 #define FALSE !TRUE
+#define WBUFF_SIZE 1024
 #define VALID_CHAR(c) ((c)=='A' || (c)=='T' || (c)=='C' || (c)=='G')?(TRUE):(FALSE)
 
 typedef enum {PRE, FIRST_IN, OTHERS_IN, POST} state;
+
+typedef struct {
+	char* text;
+	int size;
+	int curr;
+} t_wbuff;
+
+t_wbuff wbuff;
+
+int
+posChecker (int len, char* text) {
+	return posChecker(atoi(text+1), text[len-1]);
+}
+
+int
+posChecker (int pos, char c) {
+	if (wbuff.curr>=pos && wbuff.text[pos]==c)
+		return TRUE;
+	return FALSE;
+}
+
+void
+write (char c) {
+	if (!(wbuff.curr%wbuff.size))
+		fwrite(wbuff.text, wbuff.curr, 1, yyout);
+	wbuff.text[wbuff.curr++] = c;
+}
+
+void
+write (char* text, int len) {
+	int i;
+	for (i=0; i<len ;i++)
+		write(text[i]);
+}
 
 void
 trim (char* text, int *len) {
@@ -106,19 +148,19 @@ trim (char* text, int *len) {
 int
 singleSelector (int *len, char* text) {
 	trim(text, len);
-	return 1;
+	return 0;
 }
 
 int
 doubleSelector (int *len, char* text) {
 	trim(text, len);
-	return 1;
+	return 0;
 }
 
 int
 tripleSelector (int *len, char* text) {
 	trim(text, len);
-	return 1;
+	return 0;
 }
 
 int
@@ -134,10 +176,19 @@ checkStart (void) {
 	return strcmp(buff, "AUG");
 }
 
-int
-main (void) {
+void
+init (void) {
 	yyin=stdin;
 	yyout=stdout;
+
+	wbuff.size = WBUFF_SIZE;
+	wbuff.curr = 0;
+	wbuff.text = malloc(wbuff.size);
+}
+
+int
+main (int argc, char** argv) {
+	init();
 
 	if (checkStart())
 		return -1;
@@ -145,65 +196,3 @@ main (void) {
 		return start();
 
 }
-
-
-/*
-int
-singleSelector (int pos, int len, char* text) {
-
-	char* c;
-	char* d;
-	char opts[5];
-	char triplet[4];
-	char toParse[13];
-	char* pointer;
-	int idx = 0;
-	int idy = 0;
-	int count = 0;
-	c = text;
-	d = opts;
-	pointer = toParse;
-
-	while( *c != '{' ){
-		triplet[idy++] = *c;
-		c++;
-		count++;
-	}
-
-	idy++;
-	c++;
-	count++;
-
-	while( *c != '}'){
-		if( (*c != ' ') && (*c != ','))
-			opts[idx++] = *c;
-		c++;
-		count++;
-	}
-	count++;
-	c++;
-
-	for( ; count < len; count++){
-		c++;
-		triplet[idy++] = *c;
-		printf("%c\n", triplet[idy]);
-	}
-	
-	opts[idx] = '\0';
-	triplet[4] = '\0';
-
-	printf("%s\n", opts);
-	printf("%s\n", triplet);
-
-	yyscan_t scanner;
-	YY_BUFFER_STATE buf;
-	yylex_init(&scanner);
-	buf = yy_scan_string(toParse, scanner);
-	yylex(scanner);
-	yy_delete_buffer(buf, scanner);
-	yylex_destroy(scanner);
-
-	return 0;
-
-}
-*/
