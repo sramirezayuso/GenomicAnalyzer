@@ -26,32 +26,61 @@ NUM  [0-9]
 POS  \[{NUM}+\]
 REPN {REPE}{POS}
 
+%top{
+	#include <stdio.h>
+	#include <stdlib.h>
+
+	#define TRUE 1
+	#define FALSE !TRUE
+	#define WBUFF_SIZE 1024
+	#define VALID_CHAR(c) ((c)=='A' || (c)=='T' || (c)=='C' || (c)=='G')?(TRUE):(FALSE)
+
+	typedef enum {PRE, FIRST_IN, OTHERS_IN, POST} state;
+
+	typedef struct {
+		char* text;
+		int size;
+		int curr;
+	} t_wbuff;
+
+	int posChecker (int len, char* text);
+	int posCheckerChar (int pos, char c);
+	void writeBuffer (char* text, int len);
+	void writeBufferChar (char c);
+	void trim (char* text, int *len);
+	int singleSelector (int *len, char* text);
+	int doubleSelector (int *len, char* text);
+	int tripleSelector (int *len, char* text);
+
+	t_wbuff wbuff;
+}
+
 %%
-.	 		write("|JUNK|", 6);
-{ISOL}		write('I');
-{LEUC}		write('L');
-{VALI}		write('V');
-{PHEN}		write('F');
-{METH}		write('M');
-{CYST}		write('C');
-{ALAN}		write('A');
-{GLYC}		write('G');
-{PROL}		write('P');
-{THRE}		write('T');
-{SERI}		write('S');
-{TYRO}		write('Y');
-{TRYP}		write('W');
-{GLUT}		write('Q');
-{ASPA}		write('N');
-{HIST}		write('H');
-{GLUA}		write('E');
-{ASPR}		write('D');
-{LYST}		write('K');
-{ARGI}		write('R');
+.	 		writeBuffer("|JUNK|", 6);
+{ISOL}		writeBufferChar('I');
+{LEUC}		writeBufferChar('L');
+{VALI}		writeBufferChar('V');
+{PHEN}		writeBufferChar('F');
+{METH}		writeBufferChar('M');
+{CYST}		writeBufferChar('C');
+{ALAN}		writeBufferChar('A');
+{GLYC}		writeBufferChar('G');
+{PROL}		writeBufferChar('P');
+{THRE}		writeBufferChar('T');
+{SERI}		writeBufferChar('S');
+{TYRO}		writeBufferChar('Y');
+{TRYP}		writeBufferChar('W');
+{GLUT}		writeBufferChar('Q');
+{ASPA}		writeBufferChar('N');
+{HIST}		writeBufferChar('H');
+{GLUA}		writeBufferChar('E');
+{ASPR}		writeBufferChar('D');
+{LYST}		writeBufferChar('K');
+{ARGI}		writeBufferChar('R');
 {POS}{ANY}			{if(!posChecker(yyleng, yytext)) return -1;};
 {POS}{SELE}			{;};
 {REPN}				{;};
-{STOP} 				{clear(); return 0;};
+{STOP} 				{fwrite(wbuff.text, wbuff.curr%wbuff.size, 1, yyout); return 0;};
 {SELE}{SELE}{SELE}	{tripleSelector(&yyleng, yytext); yyless(0);};
 {ANY}{SELE}{SELE}	{doubleSelector(&yyleng, yytext); yyless(0);};
 {SELE}{ANY}{SELE}	{doubleSelector(&yyleng, yytext); yyless(0);};
@@ -61,48 +90,31 @@ REPN {REPE}{POS}
 {ANY}{ANY}{SELE}	{singleSelector(&yyleng, yytext); yyless(0);};
 
 %%
-#include <stdio.h>
-#include <stdlib.h>
-
-#define TRUE 1
-#define FALSE !TRUE
-#define WBUFF_SIZE 1024
-#define VALID_CHAR(c) ((c)=='A' || (c)=='T' || (c)=='C' || (c)=='G')?(TRUE):(FALSE)
-
-typedef enum {PRE, FIRST_IN, OTHERS_IN, POST} state;
-
-typedef struct {
-	char* text;
-	int size;
-	int curr;
-} t_wbuff;
-
-t_wbuff wbuff;
 
 int
-posChecker (int len, char* text) {
-	return posChecker(atoi(text+1), text[len-1]);
-}
-
-int
-posChecker (int pos, char c) {
+posCheckerChar (int pos, char c) {
 	if (wbuff.curr>=pos && wbuff.text[pos]==c)
 		return TRUE;
 	return FALSE;
 }
 
+int
+posChecker (int len, char* text) {
+	return posCheckerChar(atoi(text+1), text[len-1]);
+}
+
 void
-write (char c) {
+writeBufferChar (char c) {
 	if (!(wbuff.curr%wbuff.size))
 		fwrite(wbuff.text, wbuff.curr, 1, yyout);
 	wbuff.text[wbuff.curr++] = c;
 }
 
 void
-write (char* text, int len) {
+writeBuffer (char* text, int len) {
 	int i;
 	for (i=0; i<len ;i++)
-		write(text[i]);
+		writeBufferChar(text[i]);
 }
 
 void
