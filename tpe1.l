@@ -15,7 +15,7 @@ REPN {REPE}{POS}
 	#define FALSE !TRUE
 	#define WBUFF_SIZE 1024
 	#define VALID_CHAR(c) ((c)=='A' || (c)=='T' || (c)=='C' || (c)=='G')?(TRUE):(FALSE)
-	#define IN_BUFF(pos) ( ((pos) <= curr) && ((pos) >= (curr -curr%WBUFF_SIZE)))?(TRUE):(FALSE)
+	#define IN_BUFF(pos) ( ((pos) <= wbuff.curr) && ((pos) >= (wbuff.curr -wbuff.curr%WBUFF_SIZE)))?(TRUE):(FALSE)
 
 	typedef enum {PRE_OUT, PRE_IN, CHOICE, POST_IN} state;
 
@@ -33,7 +33,7 @@ REPN {REPE}{POS}
 	int posCheckerChar (int pos, char c);
 	int posCheckerChar (int pos, char c);
 	void writeBuffer (char* text, int len);
-	void writeBufferChar (char c);
+	void writeBufferChar (char c, int choice);
 	int outterTrim (char* text, int len, int choice);
 	int innerTrim (char* text, int *len, int choice, char* sol);
 	int singleSelector (int len, char* text);
@@ -44,13 +44,11 @@ REPN {REPE}{POS}
 	t_reverser rev;
 }
 
-%x FINISHED
 
 %%
 
-<FINISHED>. {writeBufferChar('-'); fwrite(wbuff.text, wbuff.curr%WBUFF_SIZE, 1, yyout);}
 
--		writeBufferChar('\n');
+-		writeBufferChar('\n', -1);
 GCT		writeBufferChar('A', 0);
 GCC		writeBufferChar('A', 1);
 GCA		writeBufferChar('A', 2);
@@ -172,12 +170,12 @@ writeBufferChar (char c, int choice) {
 	wbuff.text[wbuff.curr%WBUFF_SIZE] = '\0';
 }
 
-void
+/*void
 writeBuffer (char* text, int len) {
 	int i;
 	for (i=0; i<len ;i++)
 		writeBufferChar(text[i]);
-}
+}*/
 
 int
 outterTrim (char* text, int len, int choice) {
@@ -190,7 +188,7 @@ outterTrim (char* text, int len, int choice) {
 			text[j++]=text[i];
 		else if (text[i]=='{') {
 			innerTrim(text+i, &aux, choice, buff);
-			strcpy(text+i, buff, aux);
+			strncpy(text+i, buff, aux);
 			j+=aux;
 			i+=aux-1;
 		}
@@ -272,26 +270,26 @@ checkStart (void) {
 
 void
 initReverser (void) {
-	strncpy(rev.dic['A'-'A'], "GCTGCCGCAGCG", 12);
-	strncpy(rev.dic['C'-'A'], "TGTTGC", 6);
-	strncpy(rev.dic['D'-'A'], "GATGAC", 6);
-	strncpy(rev.dic['E'-'A'], "GAAGAG", 6);
-	strncpy(rev.dic['F'-'A'], "TTTTTC", 6);
-	strncpy(rev.dic['G'-'A'], "GGTGGCGGAGGG", 12);
-	strncpy(rev.dic['H'-'A'], "CATCAC", 6);
-	strncpy(rev.dic['I'-'A'], "ATTATCATA", 9);
-	strncpy(rev.dic['K'-'A'], "AAAAAG", 6);
-	strncpy(rev.dic['L'-'A'], "CTTCTCCTACTGTTATTG", 18);
-	strncpy(rev.dic['M'-'A'], "ATG", 3);
-	strncpy(rev.dic['N'-'A'], "AATAAC", 6);
-	strncpy(rev.dic['P'-'A'], "CCTCCCCCACCG", 12);
-	strncpy(rev.dic['Q'-'A'], "CAACAG", 6);
-	strncpy(rev.dic['R'-'A'], "CGTCGCCGACGGAGAAGG", 18);
-	strncpy(rev.dic['S'-'A'], "TCTTCCTCATCGAGTAGC", 18);
-	strncpy(rev.dic['T'-'A'], "ACTACCACAACG", 12);
-	strncpy(rev.dic['V'-'A'], "GTTGTCGTAGTG", 12);
-	strncpy(rev.dic['W'-'A'], "TGG", 3);
-	strncpy(rev.dic['Y'-'A'], "TATTAC", 6);
+	strncpy(&(rev.dic['A'-'A']), "GCTGCCGCAGCG", 12);
+	strncpy(&(rev.dic['C'-'A']), "TGTTGC", 6);
+	strncpy(&(rev.dic['D'-'A']), "GATGAC", 6);
+	strncpy(&(rev.dic['E'-'A']), "GAAGAG", 6);
+	strncpy(&(rev.dic['F'-'A']), "TTTTTC", 6);
+	strncpy(&(rev.dic['G'-'A']), "GGTGGCGGAGGG", 12);
+	strncpy(&(rev.dic['H'-'A']), "CATCAC", 6);
+	strncpy(&(rev.dic['I'-'A']), "ATTATCATA", 9);
+	strncpy(&(rev.dic['K'-'A']), "AAAAAG", 6);
+	strncpy(&(rev.dic['L'-'A']), "CTTCTCCTACTGTTATTG", 18);
+	strncpy(&(rev.dic['M'-'A']), "ATG", 3);
+	strncpy(&(rev.dic['N'-'A']), "AATAAC", 6);
+	strncpy(&(rev.dic['P'-'A']), "CCTCCCCCACCG", 12);
+	strncpy(&(rev.dic['Q'-'A']), "CAACAG", 6);
+	strncpy(&(rev.dic['R'-'A']), "CGTCGCCGACGGAGAAGG", 18);
+	strncpy(&(rev.dic['S'-'A']), "TCTTCCTCATCGAGTAGC", 18);
+	strncpy(&(rev.dic['T'-'A']), "ACTACCACAACG", 12);
+	strncpy(&(rev.dic['V'-'A']), "GTTGTCGTAGTG", 12);
+	strncpy(&(rev.dic['W'-'A']), "TGG", 3);
+	strncpy(&(rev.dic['Y'-'A']), "TATTAC", 6);
 }
 
 void
