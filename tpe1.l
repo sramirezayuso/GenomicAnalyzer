@@ -42,6 +42,7 @@ REPN {REPE}{POS}
 		char* text;
 		int size;
 		int curr;
+		int pos;
 	} t_wbuff;
 
 	int posChecker (int len, char* text);
@@ -86,7 +87,7 @@ REPN {REPE}{POS}
 {POS}{ANY}			{if(!posChecker(yyleng, yytext)) return -1;};
 {POS}{SELE}			{;};
 {REPN}				{;};
-{STOP} 				{fwrite(wbuff.text, wbuff.curr%wbuff.size, 1, yyout); BEGIN FINISHED;};
+{STOP} 				{fputs(wbuff.text, yyout); return 0;};
 {SELE}{SELE}{SELE}	{yyless(tripleSelector(yyleng, yytext));};
 {ANY}{SELE}{SELE}	{yyless(doubleSelector(yyleng, yytext));};
 {SELE}{ANY}{SELE}	{yyless(doubleSelector(yyleng, yytext));};
@@ -120,9 +121,14 @@ posChecker (int len, char* text) {
 
 void
 writeBufferChar (char c) {
-	if (!(wbuff.curr%wbuff.size))
-		fwrite(wbuff.text,wbuff.curr%wbuff.size, 1, yyout);
-	wbuff.text[wbuff.curr++] = c;
+	if (!(wbuff.curr%wbuff.size)){
+		fputs(wbuff.text, yyout);
+		wbuff.pos = 0;
+		wbuff.text[0] = '\0';
+	}
+	wbuff.curr++;
+	wbuff.text[wbuff.pos++] = c;
+	wbuff.text[wbuff.pos] = '\0';
 }
 
 void
@@ -203,12 +209,14 @@ checkStart (void) {
 
 void
 init (void) {
-	yyin=stdin;
-	yyout=stdout;
+	yyin = fopen("input.txt", "r");
+	yyout = fopen("output.txt", "w");;
 
 	wbuff.size = WBUFF_SIZE;
 	wbuff.curr = 0;
-	wbuff.text = malloc(wbuff.size);
+	wbuff.pos = 0;	
+	wbuff.text = malloc(wbuff.size + 1);
+	wbuff.text[0] = '\0';
 }
 
 int
