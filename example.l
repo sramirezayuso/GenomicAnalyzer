@@ -21,7 +21,8 @@ ARGI CGT|CGC|CGA|CGG|AGA|AGG
 STOP TAA|TAG|TGA|STOP
 ANY  [ATCG]
 SELE \{.*\}
-REPE {SELE}\*
+SELU \{{ANY}+\}
+REPE {SELU}\*
 NUM  [0-9]
 POS  \[{NUM}+\]
 REPN {REPE}{POS}
@@ -56,7 +57,7 @@ REPN {REPE}{POS}
 }
 
 %%
-.	 		writeBufferChar(yytext[0]);
+.	 		writeBuffer("|JUNK|", 6);
 {ISOL}		writeBufferChar('I');
 {LEUC}		writeBufferChar('L');
 {VALI}		writeBufferChar('V');
@@ -95,11 +96,8 @@ void
 swapSides (char* text, int i, int j) {
 	for (i--, j--; i>=0 ;i--, j--)
 		text[j]= text[i];
-	printf("%11s\n", text);
 	return ;
 }
-
-
 
 int
 posCheckerChar (int pos, char c) {
@@ -116,7 +114,7 @@ posChecker (int len, char* text) {
 void
 writeBufferChar (char c) {
 	if (!(wbuff.curr%wbuff.size))
-		fwrite(wbuff.text, wbuff.curr, 1, yyout);
+		fwrite(wbuff.text,wbuff.curr%wbuff.size, 1, yyout);
 	wbuff.text[wbuff.curr++] = c;
 }
 
@@ -163,16 +161,14 @@ trim (char* text, int len) {
 				break;
 		}
 	}
-	printf("%d, %d\n", i, len);
+
 	swapSides(text, i, len);
 	return len-i;
 }
 
 int
 singleSelector (int len, char* text) {
-	int ret = trim(text, len);
-	printf("%s, %d\n", text, len);
-	return ret;
+	return trim(text, len);
 }
 
 int
