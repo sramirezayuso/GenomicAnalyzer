@@ -20,7 +20,7 @@ LYST AAA|AAG
 ARGI CGT|CGC|CGA|CGG|AGA|AGG
 STOP TAA|TAG|TGA|STOP
 ANY  [ATCG]
-SELE \{.*\}
+SELE \{{ANY}+(?:,{ANY}+)+\}
 SELU \{{ANY}+\}
 REPE {SELU}\*
 NUM  [0-9]
@@ -56,8 +56,13 @@ REPN {REPE}{POS}
 	t_wbuff wbuff;
 }
 
+%x FINISHED
+
 %%
-.	 		writeBuffer("|JUNK|", 6);
+
+<FINISHED>. {writeBufferChar('-'); fwrite(wbuff.text, wbuff.curr%wbuff.size, 1, yyout);}
+
+-			writeBufferChar('\n');
 {ISOL}		writeBufferChar('I');
 {LEUC}		writeBufferChar('L');
 {VALI}		writeBufferChar('V');
@@ -81,7 +86,7 @@ REPN {REPE}{POS}
 {POS}{ANY}			{if(!posChecker(yyleng, yytext)) return -1;};
 {POS}{SELE}			{;};
 {REPN}				{;};
-{STOP} 				{fwrite(wbuff.text, wbuff.curr%wbuff.size, 1, yyout); return 0;};
+{STOP} 				{fwrite(wbuff.text, wbuff.curr%wbuff.size, 1, yyout); BEGIN FINISHED;};
 {SELE}{SELE}{SELE}	{yyless(tripleSelector(yyleng, yytext));};
 {ANY}{SELE}{SELE}	{yyless(doubleSelector(yyleng, yytext));};
 {SELE}{ANY}{SELE}	{yyless(doubleSelector(yyleng, yytext));};
@@ -89,6 +94,8 @@ REPN {REPE}{POS}
 {SELE}{ANY}{ANY}	{yyless(singleSelector(yyleng, yytext));};
 {ANY}{SELE}{ANY}	{yyless(singleSelector(yyleng, yytext));};
 {ANY}{ANY}{SELE}	{yyless(singleSelector(yyleng, yytext));};
+.	return -1;
+
 
 %% 
 
