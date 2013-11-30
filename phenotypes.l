@@ -1,0 +1,157 @@
+ADIPOSE_TISSUE_PHENOTYPE "Anchor proteinLigandOxidaseRacemaseEpimeraseUnclassifiedHydrolaseGTPase activating proteinGlucosaminyltransferase EpimeraseGTPaseGalactosidaseStructural proteinWater channelDNA methyltransferaseDNA exonuclease"
+BEHAVIOR_NEUROLOGICAL_PHENOTYPE "Translation regulatory proteinSerine proteaseMHC complex proteinEndopeptidaseAminorasaPhosphohydrolaseT cell antigen receptorCell junction proteinATPasePhosphohydrolaseDehydrogenase"
+CARDIOVASCULAR_SYSTEM_PHENOTYPE "PhosphodiesteraseAcid phosphataseRacemaseRibosyltransferaseAmylaseGTPase activating proteinNucleotidyltransferasePhosphohydrolasePrenyltransferaseDNA methyltransferaseSynthetaseGuanyl cyclaseTranslation regulatory proteinDNA exonucleaseThioesterase"
+CELLULAR_PHENOTYPE "Receptor serine/threonine kinaseVoltage gated channelWater channelAmylaseTransaminaseRNA methyltransferaseMotor proteinGalactosidaseGrowth factorHydrataseB cell antigen receptorDeaminase"
+CRANIOFACIAL_PHENOTYPE "PhosphohydrolaseIsomerasePhosphodiesteraseOxygenaseDual specificity kinaseGlutathione transferaseSulphataseDNA binding proteinGrowth inhibitory factor"
+DIGESTIVE_ALIMENTARY_PHENOTYPE "HydroxylaseHeat shock proteinSerine proteaseDeoxyribonucleaseG protein coupled receptorComplement receptorGuanylate cyclaseTransferaseMetallo proteasePrenyltransferaseInward rectifier channelTransketolase"
+EMBRYOGENESIS_PHENOTYPE "Serine/threonine phosphataseHydrolaseDeaminaseATPaseDNA ligase"
+ENDOCRINE_EXOCRINE_GLAND_PHENOTYPE "OxidaseSynthetaseGlycosyltransferaseMembrane bound ligandIntracellular ligand gated channelDNA exonucleaseMotor proteinG proteinDehydrogenaseIntegral membrane protein"
+GROWTH_SIZE_PHENOTYPE "Metallo proteaseNeuraminidaseWater channelThioesteraseMetallo proteaseRNA exonucleaseReceptor tyrosine kinasePeroxidaseDehydrogenaseATPaseReceptor serine/threonine kinase"
+HEARING_VESTIBULAR_EAR_PHENOTYPE "TransferaseCell surface receptorGuanylate cyclasePrenyltransferaseIon channel, otherMembrane transport protein"
+HEMATOPOIETIC_SYSTEM_PHENOTYPE "Glutathione transferaseCoagulation factorStructural proteinSerine proteaseAdhesion moleculeDNA telomeraseRibonucleoproteinPhosphotriesteraseHydroxylaseAcyltransferaseGlycosylase"
+HOMEOSTASIS_METABOLISM_PHENOTYPE "DeacetylaseCell surface receptorTopoisomeraseMetallo proteaseSynthetaseOxidoreductaseGrowth factorAmylaseB cell antigen receptorGlutathione transferasePhosphotransferaseCarbonic anhydraseStorage protein"
+IMMUNE_SYSTEM_PHENOTYPE "ImmunoglobulinDehydrogenaseAdenosyltransferaseProtease, unclassifiedAlkaline phosphataseComplement receptorGalactosyltransferase DeacetylaseWater channelEnzyme regulatorRNA exonucleasePhosphohydrolaseGalactosyltransferase T cell antigen receptor"
+INTEGUMENT_PHENOTYPE "AcyltransferaseSulphatasePhosphodiesteraseCarboxypeptidaseExtracellular matrix proteinRacemaseReceptor tyrosine phosphataseSerine/threonine kinaseGrowth factorCatalaseNucleotidyltransferase"
+LIMBS_DIGITS_TAIL_PHENOTYPE "AdenosyltransferaseSerine/threonine kinaseG proteinMHC complex protein"
+LIVER_BILIARY_SYSTEM_PHENOTYPE "DNA repair proteinGlucuronidaseDeacetylaseMembrane bound ligandAdhesion moleculeAdhesion moleculeAspartic proteaseEpimeraseTranscription regulatory proteinHydrolaseGlycosidaseAdenylate cyclasePhosphatase,othersGuanyl cyclaseWater channelRNA endonucleaseGrowth factorB cell antigen receptorDNA methyltransferaseSuperoxide dismutaseIntracellular ligand gated channelCytokine"
+MORTALITY_AGING "Growth inhibitory factorSerine/threonine phosphataseDNA ligaseProtease, unclassifiedTransport/cargo proteinChemokineDNA exonucleaseDeaminaseEndopeptidaseMHC complex proteinRibosyltransferaseExtracellular ligand gated channelExtracellular ligand gated channelRNA polymeraseTyrosine phosphataseGlucosidaseMetallo proteaseLigand"
+MUSCLE_PHENOTYPE "SynthetaseGlutathione transferaseRNA binding proteinAcid phosphatase"
+NERVOUS_SYSTEM_PHENOTYPE "T cell antigen receptorHeat shock proteinOxidoreductaseGrowth factor"
+NO_PHENOTYPIC_ANALYSIS "Metallo proteasePhosphotransferaseHydrolaseGuanylate cyclaseCell cycle control proteinUbiquitin proteasome system protein"
+NORMAL_PHENOTYPE "Cell cycle control proteinVoltage gated channelLipasePhospholipaseGlucosidase"
+OTHER_PHENOTYPE "PhosphotriesteraseGTPaseLyaseDehydrataseG protein coupled receptorSerine proteaseEsterase"
+PIGMENTATION_PHENOTYPE "Alkaline phosphataseTyrosine phosphataseDNA repair proteinChaperone"
+RENAL_URINARY_SYSTEM_PHENOTYPE "AdenosyltransferaseGlycosidaseCell cycle control proteinDefensinSuperoxide dismutaseImmunoglobulinStorage proteinCytokineHydrolaseCytoskeletal associated proteinGlycosidaseSecreted polypeptide, miscellaneousATPasePhosphohydrolaseGlutathione transferaseComplement receptorReverse transcriptaseHydrolaseGlycosylase"
+REPRODUCTIVE_SYSTEM_PHENOTYPE "UnclassifiedPhosphorylaseNuclear receptorStorage proteinAnchor proteinProtease inhibitorReverse transcriptaseDNA methyltransferaseHydrolaseIntracellular ligand gated channelB cell antigen receptorRNA endonuclease"
+RESPIRATORY_SYSTEM_PHENOTYPE "ChaperoneRibosyltransferaseVoltage gated channelCoagulation factorDNA telomeraseAcid phosphataseCarboxypeptidaseRegulatory/other subunitCarbonic anhydraseTranslocaseGlucuronidaseSuperoxide dismutaseTransaldolaseRibonucleoproteinProtease inhibitorAldolaseTopoisomerase"
+SKELETON_PHENOTYPE "RNA binding proteinRibosomal subunitTransaminaseDNA helicaseDeacetylaseDeaminaseReceptor tyrosine kinaseInward rectifier channel"
+TASTE_OLFACTION_PHENOTYPE "Inward rectifier channelGlycosyltransferaseGuanine nucleotide exchange factorRNA endonucleaseSulphataseAminorasaMethyltransferaseCarbonic anhydraseG protein coupled receptorCalcium binding proteinB cell antigen receptorSerine/threonine phosphataseSecreted polypeptide, miscellaneousT cell antigen receptorLipaseHydroxylaseMembrane transport proteinHydroxylaseRegulatory/other subunitHeat shock proteinDual specificity kinaseInward rectifier channel"
+TUMORIGENESIS "Anchor proteinLigandAlkaline phosphataseMethyltransferaseGlycosylaseComplement proteinSuperoxide dismutaseDehydrogenase"
+ALTERED_TUMOR_PATHOLOGY "DNA helicaseSerine/threonine phosphataseCoagulation factorDehydrogenaseLipid phosphataseCalcium binding proteinAcyltransferaseChemokineCytoskeletal associated proteinDNA repair proteinDeoxyribonucleaseDefensinCarbonic anhydraseProtease, unclassifiedRNA helicaseHydrataseCatalaseCytokineDeoxyribonucleaseTransport/cargo protein"
+ALTERED_TUMOR_SUSCEPTIBILITY "LyaseSecreted polypeptide, miscellaneousCytokineDual specificity kinase"
+VISION_EYE_PHENOTYPE "EpimeraseRibonucleaseDNA ligaseCytoskeletal proteinDecarboxylaseDeacetylaseAminopeptidaseRNA binding proteinDNA repair proteinGlutathione transferaseCell junction proteinTyrosine phosphatase"
+ABNORMAL_EAR_DEVELOPMENT "GTPaseLigaseLipid phosphataseReceptor tyrosine phosphataseGlycosyltransferaseAspartic proteaseMHC complex proteinGlycosylaseAminorasaCytoskeletal associated protein"
+ABNORMAL_INNER_EAR_MORPHOLOGY "RacemaseAcid phosphataseSecreted polypeptide, miscellaneousAcyltransferaseSulphohydrolaseDNA exonuclease"
+ABNORMAL_MIDDLE_EAR_MORPHOLOGY "DNA telomeraseDehydrogenaseCell cycle control proteinPrenyltransferaseSulphotransferaseSerine proteaseNucleotidyltransferaseExtracellular matrix proteinAminopeptidaseB cell antigen receptorSerine/threonine phosphatase"
+ABNORMAL_OUTER_EAR_MORPHOLOGY "GTPase activating proteinGlycosylaseProtease, unclassifiedExtracellular ligand gated channelRNA binding proteinRNA exonucleaseTranslocaseCarbonic anhydraseSerine/threonine phosphataseRacemaseTranslation regulatory proteinGlycosyltransferaseDNA polymeraseMutaseRibosyltransferaseExtracellular matrix proteinCysteine protease"
+ABNORMAL_AUTONOMIC_NERVOUS_SYSTEM_MORPHOLOGY "ImmunoglobulinAdenosyltransferaseDehydrogenaseDNA polymeraseSialyltransferaseATPaseDeoxyribonucleaseDeacetylaseReductaseOxidoreductaseGalactosidaseTranscription factorGuanyl cyclaseIntracellular ligand gated channelSynthetaseLipid phosphataseChaperone"
+ABNORMAL_BRAIN_MORPHOLOGY "Voltage gated channelMembrane bound ligandGlycosidaseAspartic proteaseEpimeraseReceptor tyrosine phosphataseMotor proteinRNA helicasePhosphatase,othersRibonucleoproteinGrowth inhibitory factorIsomeraseGlucosidaseGlycosidaseTranscription factorRNA binding proteinHydrataseTyrosine phosphataseTransketolaseInward rectifier channelPeroxidase"
+ABNORMAL_EPENDYMA_MORPHOLOGY "ThioesteraseTransketolaseOxidaseGrowth factorGrowth inhibitory factorMutasePhosphotriesteraseRNA methyltransferaseLigand"
+ABNORMAL_GLIAL_CELL_MORPHOLOGY "DNA ligaseMembrane bound ligandLigandReceptor tyrosine kinaseEpimeraseReverse transcriptaseAspartic proteaseSecreted polypeptide, miscellaneousAldolaseATPaseDehydrataseDefensinSuperoxide dismutaseAspartic proteaseRegulatory/other subunitNucleotidyltransferaseCell cycle control protein"
+ABNORMAL_INNERVATION "DNA telomerasePrenyltransferaseGlucosaminyltransferase RibosyltransferaseProtease, unclassifiedTranslocaseDNA helicaseNucleotidyltransferaseTransport/cargo proteinDeaminaseLyaseDecarboxylaseCoagulation factorPrenyltransferaseMHC complex proteinMutaseNucleotidyltransferaseHeat shock proteinNuclear receptorComplement proteinGrowth inhibitory factorCarboxylase"
+ABNORMAL_MENINGES_MORPHOLOGY "ATPaseGTPaseDNA methyltransferaseDNA telomeraseCarboxylaseSynthetaseGlutathione transferaseVoltage gated channelDeoxyribonucleaseMotor proteinGrowth factorTranscription factorOxygenaseSulphataseTranslocaseAdenylate cyclase"
+ABNORMAL_NERVOUS_SYSTEM_DEVELOPMENT "DNA polymeraseAcyltransferaseTopoisomeraseNucleotidyltransferaseWater channelLipid Kinase"
+ABNORMAL_NERVOUS_SYSTEM_TRACT_MORPHOLOGY "RNA binding proteinSerine/threonine phosphataseAcid phosphataseProtease, unclassifiedMotor proteinCytokine receptor"
+ABNORMAL_NEURON_MORPHOLOGY "Motor proteinSerine proteaseSialyltransferase"
+ABNORMAL_SOMATIC_NERVOUS_SYSTEM_MORPHOLOGY "Growth factorReverse transcriptaseOxygenaseExtracellular ligand gated channelGTPaseIsomeraseRibosomal subunitCalcium binding proteinOxidaseTransport/cargo proteinGalactosidaseReverse transcriptase"
+ABNORMAL_SPINAL_CORD_MORPHOLOGY "Voltage gated channelGlucosidaseGlycosyltransferaseDeacetylaseOxidaseHydroxylaseChemokineDNA repair proteinWater channel"
+ALPHA-SYNUCLEIN_INCLUSION_BODY "ReductaseEndopeptidaseLigandDNA ligaseDNA ligaseMembrane transport proteinPhosphotransferaseDefensinRibosomal subunitUnclassifiedUbiquitin proteasome system proteinSecreted polypeptide, miscellaneousUbiquitin proteasome system proteinOxygenaseTranslocaseGalactosyltransferase DehydrataseAdhesion moleculeDual specificity phosphataseProtease, unclassified"
+AMYLOID_BETA_DEPOSITS "Lipid phosphataseGlucosidaseUbiquitin proteasome system proteinRegulatory/other subunitGTPase activating proteinOxidasePrenyltransferaseGTPase activating proteinG proteinOxygenaseTransport/cargo proteinLipid Kinase"
+ABNORMAL_CORONARY_VESSEL_MORPHOLOGY "Cell cycle control proteinLipaseEpimeraseCytoskeletal proteinTranscription regulatory proteinUbiquitin proteasome system proteinAdenylate cyclaseGuanine nucleotide exchange factorPeptide hormoneOxygenaseRNA helicaseTransaminaseRacemaseUbiquitin proteasome system proteinSulphohydrolaseEnzyme regulator"
+ABNORMAL_HEART_AND_GREAT_VESSEL_ATTACHMENT "RNA binding proteinRibonucleaseTranscription factorAldolaseAdapter moleculeGlycosyltransferaseAldolaseMembrane transport proteinB cell antigen receptorTransferaseTyrosine kinaseIsomerase"
+ABNORMAL_HEART_ATRIUM_AND_VENTRICLE_CONNECTION "RacemaseOxidoreductaseIntracellular ligand gated channelPhosphotransferaseTopoisomeraseMutaseT cell antigen receptorTransketolaseSialyltransferaseGalactosidaseRibonucleasePhosphohydrolaseRegulatory/other subunitDNA polymeraseEpimeraseExtracellular matrix proteinAlkaline phosphatase"
+ABNORMAL_HEART_ATRIUM_MORPHOLOGY "G proteinAspartic proteaseDNA ligaseAdhesion moleculeReverse transcriptaseRibonucleoproteinAcid phosphataseOxidoreductaseRibonucleoproteinTransport/cargo proteinDNA polymeraseTranslation regulatory proteinTyrosine phosphataseCytoskeletal proteinPhospholipaseCarbonic anhydraseRNA methyltransferaseDehydrogenaseCarboxylaseExtracellular matrix proteinHeat shock protein"
+ABNORMAL_HEART_DEVELOPMENT "Transport/cargo proteinEpimeraseATPaseNeuraminidaseGalactosyltransferase ChaperoneEsteraseImmunoglobulin"
+ABNORMAL_HEART_IRON_LEVEL "Acid phosphataseTransaminaseStorage proteinSerine proteasePeroxidaseAdenosyltransferaseNucleotidyltransferaseUbiquitin proteasome system proteinGlutathione transferaseG protein coupled receptorIntracellular ligand gated channelAdenosyltransferaseSulphohydrolasePhosphorylase"
+ABNORMAL_HEART_LAYER_MORPHOLOGY "GlycosylaseInward rectifier channelDNA ligaseChemokineGlucuronidaseChemokineGrowth factorCysteine proteaseComplement proteinSerine/threonine kinaseNucleotidyltransferaseProtease, unclassified"
+ABNORMAL_HEART_POSITION_OR_ORIENTATION "Alkaline phosphatasePhosphatase,othersGlycosyltransferaseDeacetylaseNADaseAminopeptidaseVoltage gated channelEnzyme regulatorCalcium binding proteinChaperonePeroxidasePhosphotransferasePhosphorylaseGTPase activating proteinDehydrogenaseStorage proteinDual specificity kinase"
+ABNORMAL_HEART_SEPTUM_MORPHOLOGY "RacemaseLipaseRNA exonucleaseRacemaseAminorasaAdenosyltransferaseAldolaseLipid phosphataseCytoskeletal proteinPrenyltransferaseCarbonic anhydraseRNA methyltransferaseLyaseComplement proteinGTPase activating proteinCell cycle control proteinSuperoxide dismutaseEpimeraseAlkaline phosphatase"
+ABNORMAL_HEART_SHAPE "Anchor proteinHeat shock proteinGuanyl cyclasePhosphotriesteraseDefensinMethyltransferaseMembrane bound ligandHydroxylasePhosphotriesteraseRNA polymeraseGlucosidaseWater channelAdenosyltransferaseHeat shock proteinRNA polymeraseSecreted polypeptide, miscellaneousRacemaseGrowth factorMotor protein"
+ABNORMAL_HEART_SIZE "CarboxylaseGalactosidaseOxidoreductaseAspartic proteaseReceptor serine/threonine kinaseLigaseCarboxylaseRNA binding protein"
+ABNORMAL_HEART_VALVE_MORPHOLOGY "TransaldolaseG protein coupled receptorPeroxidaseSulphotransferase"
+ABNORMAL_HEART_VENTRICLE_MORPHOLOGY "Membrane transport proteinPhosphohydrolaseAdapter moleculeGalactosidaseAmylaseDual specificity kinaseOxidoreductaseOxidaseDNA telomeraseSynthetasePhosphotriesteraseTransaldolaseCytokine receptorPeroxidase"
+ABNORMAL_IMPULSE_CONDUCTING_SYSTEM_MORPHOLOGY "PhosphorylaseGTPase activating proteinDehydrogenaseT cell antigen receptorPhosphohydrolaseRibonucleoproteinDNA telomerase"
+ABNORMAL_PERICARDIUM_MORPHOLOGY "TransferaseSerine proteaseGuanyl cyclaseT cell antigen receptorDefensinTyrosine phosphatasePhosphohydrolaseSuperoxide dismutaseGlucosidaseLipaseStorage proteinPeroxidaseReverse transcriptaseDual specificity phosphataseThioesteraseTranslocaseRNA binding proteinPhosphorylaseHydroxylaseRNA helicaseGalactosyltransferase Oxygenase"
+ABSENT_HEART "Guanylate cyclaseOxygenaseTransaminaseNucleotidyltransferaseTyrosine phosphataseTransketolase"
+CARDIAC_FIBROSIS "PhosphotriesteraseAdenylate cyclaseSulphohydrolaseAminopeptidaseAminorasa"
+DILATED_HEART "GalactosidaseEsteraseExtracellular matrix proteinSerine/threonine kinaseLigandDNA methyltransferaseIntracellular ligand gated channelDNA exonucleaseCoagulation factorAcyltransferaseStructural proteinCytokineAdapter moleculeAlkaline phosphataseDNA ligaseExtracellular ligand gated channelDNA methyltransferaseCytoskeletal associated proteinRibosomal subunitGuanylate cyclaseMembrane transport proteinIntegral membrane protein"
+DYSTROPHIC_CARDIAC_CALCINOSIS "RibonucleoproteinAcid phosphataseDNA telomeraseMutaseRibonucleoproteinProtease inhibitorG proteinRibosyltransferaseCarboxypeptidasePhosphohydrolaseGalactosidaseMethyltransferaseCell cycle control proteinPhospholipaseMutaseCarboxylaseG protein coupled receptor"
+HEART_VASCULAR_CONGESTION "Complement receptorSuperoxide dismutaseNuclear receptorUnclassifiedUnclassifiedAlkaline phosphataseHeat shock proteinDeacetylaseTransport/cargo proteinAspartic proteaseLyaseAldolaseCell junction protein"
+
+%top{
+	#include <stdio.h>
+	#include <stdlib.h>
+}
+
+%%
+
+{ADIPOSE_TISSUE_PHENOTYPE} fputs("adipose tissue phenotype", yyout);
+{BEHAVIOR_NEUROLOGICAL_PHENOTYPE} fputs("behavior/neurological phenotype", yyout);
+{CARDIOVASCULAR_SYSTEM_PHENOTYPE} fputs("cardiovascular system phenotype", yyout);
+{CELLULAR_PHENOTYPE} fputs("cellular phenotype", yyout);
+{CRANIOFACIAL_PHENOTYPE} fputs("craniofacial phenotype", yyout);
+{DIGESTIVE_ALIMENTARY_PHENOTYPE} fputs("digestive/alimentary phenotype", yyout);
+{EMBRYOGENESIS_PHENOTYPE} fputs("embryogenesis phenotype", yyout);
+{ENDOCRINE_EXOCRINE_GLAND_PHENOTYPE} fputs("endocrine/exocrine gland phenotype", yyout);
+{GROWTH_SIZE_PHENOTYPE} fputs("growth/size phenotype", yyout);
+{HEARING_VESTIBULAR_EAR_PHENOTYPE} fputs("hearing/vestibular/ear phenotype", yyout);
+{HEMATOPOIETIC_SYSTEM_PHENOTYPE} fputs("hematopoietic system phenotype", yyout);
+{HOMEOSTASIS_METABOLISM_PHENOTYPE} fputs("homeostasis/metabolism phenotype", yyout);
+{IMMUNE_SYSTEM_PHENOTYPE} fputs("immune system phenotype", yyout);
+{INTEGUMENT_PHENOTYPE} fputs("integument phenotype", yyout);
+{LIMBS_DIGITS_TAIL_PHENOTYPE} fputs("limbs/digits/tail phenotype", yyout);
+{LIVER_BILIARY_SYSTEM_PHENOTYPE} fputs("liver/biliary system phenotype", yyout);
+{MORTALITY_AGING} fputs("mortality/aging", yyout);
+{MUSCLE_PHENOTYPE} fputs("muscle phenotype", yyout);
+{NERVOUS_SYSTEM_PHENOTYPE} fputs("nervous system phenotype", yyout);
+{NO_PHENOTYPIC_ANALYSIS} fputs("no phenotypic analysis", yyout);
+{NORMAL_PHENOTYPE} fputs("normal phenotype", yyout);
+{OTHER_PHENOTYPE} fputs("other phenotype", yyout);
+{PIGMENTATION_PHENOTYPE} fputs("pigmentation phenotype", yyout);
+{RENAL_URINARY_SYSTEM_PHENOTYPE} fputs("renal/urinary system phenotype", yyout);
+{REPRODUCTIVE_SYSTEM_PHENOTYPE} fputs("reproductive system phenotype", yyout);
+{RESPIRATORY_SYSTEM_PHENOTYPE} fputs("respiratory system phenotype", yyout);
+{SKELETON_PHENOTYPE} fputs("skeleton phenotype", yyout);
+{TASTE_OLFACTION_PHENOTYPE} fputs("taste/olfaction phenotype", yyout);
+{TUMORIGENESIS} fputs("tumorigenesis", yyout);
+{ALTERED_TUMOR_PATHOLOGY} fputs("altered tumor pathology", yyout);
+{ALTERED_TUMOR_SUSCEPTIBILITY} fputs("altered tumor susceptibility", yyout);
+{VISION_EYE_PHENOTYPE} fputs("vision/eye phenotype", yyout);
+{ABNORMAL_EAR_DEVELOPMENT} fputs("abnormal ear development", yyout);
+{ABNORMAL_INNER_EAR_MORPHOLOGY} fputs("abnormal inner ear morphology", yyout);
+{ABNORMAL_MIDDLE_EAR_MORPHOLOGY} fputs("abnormal middle ear morphology", yyout);
+{ABNORMAL_OUTER_EAR_MORPHOLOGY} fputs("abnormal outer ear morphology", yyout);
+{ABNORMAL_AUTONOMIC_NERVOUS_SYSTEM_MORPHOLOGY} fputs("abnormal autonomic nervous system morphology", yyout);
+{ABNORMAL_BRAIN_MORPHOLOGY} fputs("abnormal brain morphology", yyout);
+{ABNORMAL_EPENDYMA_MORPHOLOGY} fputs("abnormal ependyma morphology", yyout);
+{ABNORMAL_GLIAL_CELL_MORPHOLOGY} fputs("abnormal glial cell morphology", yyout);
+{ABNORMAL_INNERVATION} fputs("abnormal innervation", yyout);
+{ABNORMAL_MENINGES_MORPHOLOGY} fputs("abnormal meninges morphology", yyout);
+{ABNORMAL_NERVOUS_SYSTEM_DEVELOPMENT} fputs("abnormal nervous system development", yyout);
+{ABNORMAL_NERVOUS_SYSTEM_TRACT_MORPHOLOGY} fputs("abnormal nervous system tract morphology", yyout);
+{ABNORMAL_NEURON_MORPHOLOGY} fputs("abnormal neuron morphology", yyout);
+{ABNORMAL_SOMATIC_NERVOUS_SYSTEM_MORPHOLOGY} fputs("abnormal somatic nervous system morphology", yyout);
+{ABNORMAL_SPINAL_CORD_MORPHOLOGY} fputs("abnormal spinal cord morphology", yyout);
+{ALPHA-SYNUCLEIN_INCLUSION_BODY} fputs("alpha-synuclein inclusion body", yyout);
+{AMYLOID_BETA_DEPOSITS} fputs("amyloid beta deposits", yyout);
+{ABNORMAL_CORONARY_VESSEL_MORPHOLOGY} fputs("abnormal coronary vessel morphology", yyout);
+{ABNORMAL_HEART_AND_GREAT_VESSEL_ATTACHMENT} fputs("abnormal heart and great vessel attachment", yyout);
+{ABNORMAL_HEART_ATRIUM_AND_VENTRICLE_CONNECTION} fputs("abnormal heart atrium and ventricle connection", yyout);
+{ABNORMAL_HEART_ATRIUM_MORPHOLOGY} fputs("abnormal heart atrium morphology", yyout);
+{ABNORMAL_HEART_DEVELOPMENT} fputs("abnormal heart development", yyout);
+{ABNORMAL_HEART_IRON_LEVEL} fputs("abnormal heart iron level", yyout);
+{ABNORMAL_HEART_LAYER_MORPHOLOGY} fputs("abnormal heart layer morphology", yyout);
+{ABNORMAL_HEART_POSITION_OR_ORIENTATION} fputs("abnormal heart position or orientation", yyout);
+{ABNORMAL_HEART_SEPTUM_MORPHOLOGY} fputs("abnormal heart septum morphology", yyout);
+{ABNORMAL_HEART_SHAPE} fputs("abnormal heart shape", yyout);
+{ABNORMAL_HEART_SIZE} fputs("abnormal heart size", yyout);
+{ABNORMAL_HEART_VALVE_MORPHOLOGY} fputs("abnormal heart valve morphology", yyout);
+{ABNORMAL_HEART_VENTRICLE_MORPHOLOGY} fputs("abnormal heart ventricle morphology", yyout);
+{ABNORMAL_IMPULSE_CONDUCTING_SYSTEM_MORPHOLOGY} fputs("abnormal impulse conducting system morphology", yyout);
+{ABNORMAL_PERICARDIUM_MORPHOLOGY} fputs("abnormal pericardium morphology", yyout);
+{ABSENT_HEART} fputs("absent heart", yyout);
+{CARDIAC_FIBROSIS} fputs("cardiac fibrosis", yyout);
+{DILATED_HEART} fputs("dilated heart", yyout);
+{DYSTROPHIC_CARDIAC_CALCINOSIS} fputs("dystrophic cardiac calcinosis", yyout);
+{HEART_VASCULAR_CONGESTION} fputs("heart vascular congestion", yyout);
+. ;
+
+%%
+
+int
+main (int argc, char** argv) {
+	yyin = fopen("proteinas.txt", "r");
+	yyout = fopen("fenotipos.txt", "w");
+
+	yylex();
+}

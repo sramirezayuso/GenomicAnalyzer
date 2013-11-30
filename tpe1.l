@@ -213,8 +213,8 @@ checkStart (void) {
 
 void
 init (void) {
-	yyin = fopen("input.txt", "r");
-	yyout = fopen("output.txt", "w");;
+	yyin = fopen("genomedatabase/human.dat", "r");
+	yyout = fopen("aminoacidos.txt", "w");
 
 	wbuff.size = WBUFF_SIZE;
 	wbuff.curr = 0;
