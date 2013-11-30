@@ -212,8 +212,8 @@ checkStart (void) {
 }
 
 void
-init (*input) {
-	yyin = fopen(input, "r");
+init (void) {
+	yyin = fopen("genomedatabase/human.dat", "r");
 	yyout = fopen("aminoacids.out", "w");
 
 	wbuff.size = WBUFF_SIZE;
@@ -225,7 +225,7 @@ init (*input) {
 
 int
 main (int argc, char** argv) {
-	init(*(argv+1));
+	init();
 
 	if (checkStart())
 		return -1;

@@ -340,8 +340,8 @@ WATER_CHANNEL PFTWIADDENVRQNYVQPEGDGIDRQHTKWMTKCMKIVKLSTSTDNCPGPWVVGHVCESHHNFTQM
 
 void
 init (void) {
-	yyin = fopen("aminoacidos.txt", "r");
-	yyout = fopen("proteinas.txt", "w");
+	yyin = fopen("aminoacids.out", "r");
+	yyout = fopen("proteins.out", "w");
 }
 
 int
