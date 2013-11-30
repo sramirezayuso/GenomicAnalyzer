@@ -7,5 +7,11 @@ initial=$(date +%s%N | cut -b1-13)
 java -ea -jar speciesMatcher.jar
 final=$(date +%s%N | cut -b1-13)
 txt="Tiempo de ejecucion: "
+seconds="segundos"
 time=`expr $final - $initial`
-echo $txt $time
+thou=1000
+timesec=$(bc -l <<< "$time / $thou")
+echo $txt $timesec $seconds
+rm aminoacids.out
+rm proteins.out
+rm phenotypes.out

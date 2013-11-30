@@ -6,3 +6,4 @@ flex -Cfa proteins.l
 gcc -o proteins lex.yy.c -lfl
 flex -Cfa phenotypes.l
 gcc -o phenotypes lex.yy.c -lfl
+rm lex.yy.c
