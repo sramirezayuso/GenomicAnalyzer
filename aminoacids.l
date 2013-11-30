@@ -53,6 +53,7 @@ REPN {REPE}{POS}
 	int singleSelector (int len, char* text);
 	int doubleSelector (int len, char* text);
 	int tripleSelector (int len, char* text);
+	char* inputFile;
 
 	t_wbuff wbuff;
 }
@@ -213,7 +214,7 @@ checkStart (void) {
 
 void
 init (void) {
-	yyin = fopen("genomedatabase/human.dat", "r");
+	yyin = fopen(inputFile, "r");
 	yyout = fopen("aminoacids.out", "w");
 
 	wbuff.size = WBUFF_SIZE;
@@ -225,6 +226,8 @@ init (void) {
 
 int
 main (int argc, char** argv) {
+	inputFile = argv[1];
+
 	init();
 
 	if (checkStart())

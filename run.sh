@@ -10,7 +10,7 @@ txt="Tiempo de ejecucion: "
 seconds="segundos"
 time=`expr $final - $initial`
 thou=1000
-timesec=$(bc -l <<< "$time / $thou")
+timesec=$(bc -l <<< "scale=3;$time / $thou")
 echo $txt $timesec $seconds
 rm aminoacids.out
 rm proteins.out
